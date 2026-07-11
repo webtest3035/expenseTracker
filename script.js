@@ -5,14 +5,59 @@ const amountInput = document.getElementById("expenseAmount");
 const expenseInputSubmit = document.getElementById("expenseInputSubmit");
 const expenseInputUpdate = document.getElementById("expenseInputUpdate");
 const table = document.getElementById("table");
+const searchByRangeSubmit = document.getElementById("searchByRangeSubmit");
+const searchCategotySubmit = document.getElementById("searchCategotySubmit");
+const refresh = document.getElementById("refresh");
+const pagination = document.getElementById("pagination");
+
+let allExpense = 0;
+let currentPage = 1;
+let itemsPerPage = 15;
+
+let filters = {
+    startDate: "",
+    endDate: ""
+};
+
+let categories = {
+    find: ""
+};
+
 
 showExpenseData();
 
 async function showExpenseData() {
 
+
+    let url = `${expenseUrl}?_page=${currentPage}&_per_page=${itemsPerPage}`;
+
+    let total = `${expenseUrl}?`;
+
+    if (filters.startDate && filters.endDate) {
+
+        url += `&date_gte=${filters.startDate}&date_lte=${filters.endDate}`;
+        total += `&date_gte=${filters.startDate}&date_lte=${filters.endDate}`;
+
+        if (categories.find) {
+
+            url += `&category=${categories.find}`;
+            total += `&category=${categories.find}`;
+        }
+
+    }
+
+    if (!filters.startDate && !filters.endDate) {
+
+        if (categories.find) {
+
+            url += `&category=${categories.find}`;
+            total += `&category=${categories.find}`;
+        }
+    }
+
     try {
 
-        const response = await fetch(expenseUrl);
+        const response = await fetch(url);
 
         if (!response.ok) {
             throw new Error("Responce Is Not Ok");
@@ -20,7 +65,18 @@ async function showExpenseData() {
 
         let result = await response.json();
 
-        fillTable(result);
+        let expense = result.data;
+        allExpense = result.items;
+
+        fillTable(expense);
+
+        const totalResponse = await fetch(total);
+
+        const totalData = await totalResponse.json();
+
+        let getTotal = totalAmount(totalData);
+
+        document.getElementById("totalExpense").textContent = getTotal;
     }
     catch (error) {
         console.error("Could Not Fetch Data:", error);
@@ -184,12 +240,55 @@ expenseInputUpdate.addEventListener("click", async () => {
 
 })
 
+searchByRangeSubmit.addEventListener("click", () => {
+
+    let start = document.getElementById("startDate").value;
+    let end = document.getElementById("endDate").value;
+
+
+    if (!start) {
+        alert(`Please Enter Sarting Date First !`)
+        return;
+    }
+
+    if (!end) {
+        alert(`Please Enter Ending Date First !`)
+        return;
+    }
+
+    filters.startDate = start;
+
+    filters.endDate = end;
+
+    currentPage = 1;
+
+    showExpenseData();
+
+});
+
+searchCategotySubmit.addEventListener("click", () => {
+
+    let input = document.getElementById("searchCategoty").value;
+    let start = document.getElementById("startDate").value;
+    let end = document.getElementById("endDate").value;
+
+    filters.startDate = start;
+
+    filters.endDate = end;
+
+    categories.find = input;
+
+    showExpenseData();
+})
+
 
 function fillTable(input) {
 
+    let startIndex = (currentPage - 1) * itemsPerPage;
+
     let rows = input.map((input, index) => ` 
                      <tr> 
-                        <td>${index + 1}</td>    
+                        <td>${startIndex + index + 1}</td>    
                         <td>${input.date}</td>    
                         <td>${input.category}</td>    
                         <td>${input.amount}</td>    
@@ -220,6 +319,71 @@ function isFormVaild(date, amount) {
 
 }
 
+function totalAmount(input) {
+
+    let total = 0;
+
+    input.forEach(input => {
+        total += input.amount;
+    })
+
+    return `₹ ${total.toLocaleString("en-IN")}`;
+}
+
+function createPagination() {
+
+    let totalPages = Math.ceil(allExpense / itemsPerPage);
+
+    if (currentPage === 1) {
+
+        document.getElementById("previousPage").style.display = "none";
+    }
+    else {
+        document.getElementById("previousPage").style.display = "block";
+    }
+
+    if (currentPage === totalPages) {
+        document.getElementById("nextPage").style.display = "none";
+    }
+    else {
+        document.getElementById("nextPage").style.display = "block";
+    }
+
+}
+
+pagination.addEventListener("click", (event) => {
+
+    if (event.target.id === "previousPage") {
+        previous();
+    }
+    if (event.target.id === "nextPage") {
+        next();
+    }
+
+})
+
+function next() {
+
+    let totalPages = Math.ceil(allExpense / itemsPerPage);
+
+    if (currentPage < totalPages) {
+        currentPage++;
+        showExpenseData();
+        createPagination();
+        pageChange();
+    }
+}
+
+function previous() {
+
+    if (currentPage > 1) {
+        currentPage--;
+        showExpenseData();
+        createPagination();
+        pageChange();
+    }
+}
+
 function emptyForm() {
 
     document.getElementById("expenseDate").value = "";
@@ -239,3 +403,21 @@ function pageChange() {
     });
 
 }
+
+refresh.addEventListener("click", () => {
+
+    document.getElementById("expenseData").innerHTML = "";
+
+    currentPage = 1;
+
+    filters.startDate = '';
+
+    filters.endDate = '';
+
+    categories.find = '';
+
+    showExpenseData();
+    emptyForm();
+
+})
+
