@@ -70,6 +70,8 @@ async function showExpenseData() {
 
         fillTable(expense);
 
+        createPagination();
+
         const totalResponse = await fetch(total);
 
         const totalData = await totalResponse.json();
