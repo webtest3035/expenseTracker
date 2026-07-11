@@ -1,0 +1,418 @@
+{
+    "expense": [
+        {
+            "date": "2025-07-03",
+            "category": "Food",
+            "amount": 320,
+            "id": "a1B2c3D4e5"
+        },
+        {
+            "date": "2025-07-08",
+            "category": "Travel",
+            "amount": 540,
+            "id": "f6G7h8I9j0"
+        },
+        {
+            "date": "2025-07-12",
+            "category": "Shopping",
+            "amount": 1250,
+            "id": "k1L2m3N4o5"
+        },
+        {
+            "date": "2025-07-18",
+            "category": "Bills",
+            "amount": 980,
+            "id": "p6Q7r8S9t0"
+        },
+        {
+            "date": "2025-07-24",
+            "category": "Others",
+            "amount": 450,
+            "id": "u1V2w3X4y5"
+        },
+        {
+            "date": "2025-07-29",
+            "category": "Rent",
+            "amount": 12000,
+            "id": "z6A7b8C9d0"
+        },
+        {
+            "date": "2025-08-04",
+            "category": "Food",
+            "amount": 280,
+            "id": "e1F2g3H4i5"
+        },
+        {
+            "date": "2025-08-09",
+            "category": "Shopping",
+            "amount": 1800,
+            "id": "j6K7l8M9n0"
+        },
+        {
+            "date": "2025-08-14",
+            "category": "Travel",
+            "amount": 760,
+            "id": "o1P2q3R4s5"
+        },
+        {
+            "date": "2025-08-19",
+            "category": "Bills",
+            "amount": 1100,
+            "id": "t6U7v8W9x0"
+        },
+        {
+            "date": "2025-08-25",
+            "category": "Others",
+            "amount": 650,
+            "id": "y1Z2a3B4c5"
+        },
+        {
+            "date": "2025-08-30",
+            "category": "Rent",
+            "amount": 12000,
+            "id": "d6E7f8G9h0"
+        },
+        {
+            "date": "2025-09-02",
+            "category": "Food",
+            "amount": 410,
+            "id": "i1J2k3L4m5"
+        },
+        {
+            "date": "2025-09-07",
+            "category": "Travel",
+            "amount": 950,
+            "id": "n6O7p8Q9r0"
+        },
+        {
+            "date": "2025-09-13",
+            "category": "Shopping",
+            "amount": 2200,
+            "id": "s1T2u3V4w5"
+        },
+        {
+            "date": "2025-09-18",
+            "category": "Bills",
+            "amount": 1350,
+            "id": "x6Y7z8A9b0"
+        },
+        {
+            "date": "2025-09-22",
+            "category": "Others",
+            "amount": 500,
+            "id": "c1D2e3F4g5"
+        },
+        {
+            "date": "2025-09-28",
+            "category": "Rent",
+            "amount": 12000,
+            "id": "h6I7j8K9l0"
+        },
+        {
+            "date": "2025-10-05",
+            "category": "Food",
+            "amount": 360,
+            "id": "m1N2o3P4q5"
+        },
+        {
+            "date": "2025-10-09",
+            "category": "Shopping",
+            "amount": 3200,
+            "id": "r6S7t8U9v0"
+        },
+        {
+            "date": "2025-10-14",
+            "category": "Travel",
+            "amount": 880,
+            "id": "w1X2y3Z4a5"
+        },
+        {
+            "date": "2025-10-20",
+            "category": "Bills",
+            "amount": 1450,
+            "id": "b6C7d8E9f0"
+        },
+        {
+            "date": "2025-10-25",
+            "category": "Others",
+            "amount": 720,
+            "id": "g1H2i3J4k5"
+        },
+        {
+            "date": "2025-10-30",
+            "category": "Rent",
+            "amount": 12000,
+            "id": "l6M7n8O9p0"
+        },
+        {
+            "date": "2025-11-03",
+            "category": "Food",
+            "amount": 470,
+            "id": "q1R2s3T4u5"
+        },
+        {
+            "date": "2025-11-08",
+            "category": "Travel",
+            "amount": 680,
+            "id": "v6W7x8Y9z0"
+        },
+        {
+            "date": "2025-11-15",
+            "category": "Shopping",
+            "amount": 2750,
+            "id": "a2B3c4D5e6"
+        },
+        {
+            "date": "2025-11-21",
+            "category": "Bills",
+            "amount": 1250,
+            "id": "f7G8h9I0j1"
+        },
+        {
+            "date": "2025-11-27",
+            "category": "Rent",
+            "amount": 12000,
+            "id": "k2L3m4N5o6"
+        },
+        {
+            "date": "2025-12-04",
+            "category": "Food",
+            "amount": 550,
+            "id": "p7Q8r9S0t1"
+        },
+        {
+            "date": "2025-12-09",
+            "category": "Shopping",
+            "amount": 4200,
+            "id": "u2V3w4X5y6"
+        },
+        {
+            "date": "2025-12-13",
+            "category": "Travel",
+            "amount": 1200,
+            "id": "z7A8b9C0d1"
+        },
+        {
+            "date": "2025-12-18",
+            "category": "Bills",
+            "amount": 1600,
+            "id": "e2F3g4H5i6"
+        },
+        {
+            "date": "2025-12-24",
+            "category": "Others",
+            "amount": 900,
+            "id": "j7K8l9M0n1"
+        },
+        {
+            "date": "2025-12-30",
+            "category": "Rent",
+            "amount": 12000,
+            "id": "o2P3q4R5s6"
+        },
+        {
+            "date": "2026-01-05",
+            "category": "Food",
+            "amount": 390,
+            "id": "t7U8v9W0x1"
+        },
+        {
+            "date": "2026-01-11",
+            "category": "Travel",
+            "amount": 950,
+            "id": "y2Z3a4B5c6"
+        },
+        {
+            "date": "2026-01-16",
+            "category": "Shopping",
+            "amount": 1900,
+            "id": "d7E8f9G0h1"
+        },
+        {
+            "date": "2026-01-20",
+            "category": "Bills",
+            "amount": 1350,
+            "id": "i2J3k4L5m6"
+        },
+        {
+            "date": "2026-01-26",
+            "category": "Rent",
+            "amount": 12000,
+            "id": "n7O8p9Q0r1"
+        },
+        {
+            "date": "2026-02-03",
+            "category": "Food",
+            "amount": 340,
+            "id": "s2T3u4V5w6"
+        },
+        {
+            "date": "2026-02-08",
+            "category": "Shopping",
+            "amount": 1450,
+            "id": "x7Y8z9A0b1"
+        },
+        {
+            "date": "2026-02-12",
+            "category": "Travel",
+            "amount": 670,
+            "id": "c2D3e4F5g6"
+        },
+        {
+            "date": "2026-02-18",
+            "category": "Bills",
+            "amount": 1180,
+            "id": "h7I8j9K0l1"
+        },
+        {
+            "date": "2026-02-22",
+            "category": "Others",
+            "amount": 520,
+            "id": "m2N3o4P5q6"
+        },
+        {
+            "date": "2026-02-27",
+            "category": "Rent",
+            "amount": 12000,
+            "id": "r7S8t9U0v1"
+        },
+        {
+            "date": "2026-03-04",
+            "category": "Food",
+            "amount": 430,
+            "id": "w2X3y4Z5a6"
+        },
+        {
+            "date": "2026-03-10",
+            "category": "Travel",
+            "amount": 890,
+            "id": "b7C8d9E0f1"
+        },
+        {
+            "date": "2026-03-15",
+            "category": "Shopping",
+            "amount": 2400,
+            "id": "g2H3i4J5k6"
+        },
+        {
+            "date": "2026-03-19",
+            "category": "Bills",
+            "amount": 1280,
+            "id": "l7M8n9O0p1"
+        },
+        {
+            "date": "2026-03-25",
+            "category": "Others",
+            "amount": 680,
+            "id": "q2R3s4T5u6"
+        },
+        {
+            "date": "2026-03-30",
+            "category": "Rent",
+            "amount": 12000,
+            "id": "v7W8x9Y0z1"
+        },
+        {
+            "date": "2026-04-06",
+            "category": "Food",
+            "amount": 370,
+            "id": "a3B4c5D6e7"
+        },
+        {
+            "date": "2026-04-11",
+            "category": "Shopping",
+            "amount": 2100,
+            "id": "f8G9h0I1j2"
+        },
+        {
+            "date": "2026-04-17",
+            "category": "Travel",
+            "amount": 740,
+            "id": "k3L4m5N6o7"
+        },
+        {
+            "date": "2026-04-21",
+            "category": "Bills",
+            "amount": 1220,
+            "id": "p8Q9r0S1t2"
+        },
+        {
+            "date": "2026-04-26",
+            "category": "Rent",
+            "amount": 12000,
+            "id": "u3V4w5X6y7"
+        },
+        {
+            "date": "2026-05-03",
+            "category": "Food",
+            "amount": 410,
+            "id": "z8A9b0C1d2"
+        },
+        {
+            "date": "2026-05-08",
+            "category": "Travel",
+            "amount": 980,
+            "id": "e3F4g5H6i7"
+        },
+        {
+            "date": "2026-05-13",
+            "category": "Shopping",
+            "amount": 2650,
+            "id": "j8K9l0M1n2"
+        },
+        {
+            "date": "2026-05-19",
+            "category": "Bills",
+            "amount": 1380,
+            "id": "o3P4q5R6s7"
+        },
+        {
+            "date": "2026-05-24",
+            "category": "Others",
+            "amount": 560,
+            "id": "t8U9v0W1x2"
+        },
+        {
+            "date": "2026-05-30",
+            "category": "Rent",
+            "amount": 12000,
+            "id": "y3Z4a5B6c7"
+        },
+        {
+            "date": "2026-06-01",
+            "category": "Travel",
+            "amount": 280,
+            "id": "O7yGtVanEQw"
+        },
+        {
+            "date": "2026-06-06",
+            "category": "Bills",
+            "amount": 1250,
+            "id": "Ga5dhFcjg2A"
+        },
+        {
+            "date": "2026-06-10",
+            "category": "Food",
+            "amount": 450,
+            "id": "d8E9f0G1h2"
+        },
+        {
+            "date": "2026-06-15",
+            "category": "Shopping",
+            "amount": 2300,
+            "id": "i3J4k5L6m7"
+        },
+        {
+            "date": "2026-06-21",
+            "category": "Others",
+            "amount": 620,
+            "id": "n8O9p0Q1r2"
+        },
+        {
+            "date": "2026-06-28",
+            "category": "Rent",
+            "amount": 12000,
+            "id": "s3T4u5V6w7"
+        }
+    ]
+}
