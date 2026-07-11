@@ -4,6 +4,7 @@ const categoryInput = document.getElementById("expenseCategory");
 const amountInput = document.getElementById("expenseAmount");
 const expenseInputSubmit = document.getElementById("expenseInputSubmit");
 const expenseInputUpdate = document.getElementById("expenseInputUpdate");
+const table = document.getElementById("table");
 
 showExpenseData();
 
@@ -76,6 +77,114 @@ expenseInputSubmit.addEventListener("click", async () => {
     }
 })
 
+table.addEventListener("click", (event) => {
+
+    if (event.target.classList.contains("editExpense")) {
+        editExpense(event.target.dataset.id);
+    }
+
+    if (event.target.classList.contains("deleteExpense")) {
+        deleteExpense(event.target.dataset.id);
+    }
+})
+
+async function deleteExpense(id) {
+
+    let confirmDelete = confirm("Are you sure you want to delete ?");
+
+    if (!confirmDelete) {
+        return;
+    }
+
+    try {
+        await fetch(`${expenseUrl}/${id}`, {
+            method: "DELETE",
+        });
+
+        await showExpenseData();
+    }
+
+    catch (error) {
+        console.error("Could Not Delete Data:", error);
+    }
+}
+
+let newID = null;
+
+async function editExpense(id) {
+
+    pageChange();
+
+    try {
+
+        let response = await fetch(`${expenseUrl}/${id}`);
+
+        if (!response.ok) {
+            throw new Error("Response Is Not Ok !");
+        }
+
+        let data = await response.json();
+
+        newID = id;
+
+        document.getElementById("expenseDate").value = data.date;
+        document.getElementById("expenseCategory").value = data.category;
+        document.getElementById("expenseAmount").value = data.amount;
+        document.getElementById("expenseInputSubmit").style.display = "none";
+        document.getElementById("expenseInputUpdate").style.display = "inline-block";
+
+    }
+    catch (error) {
+        console.error("Could Not Edit Data:", error);
+    }
+
+}
+
+expenseInputUpdate.addEventListener("click", async () => {
+
+    let date = dateInput.value;
+    let category = categoryInput.value;
+    let amount = Number(amountInput.value);
+
+    if (!isFormVaild(date, amount)) {
+        return;
+    }
+
+    let updatedExpenseDetails = {
+        date,
+        category,
+        amount
+    };
+
+    try {
+        await fetch(`${expenseUrl}/${newID}`, {
+
+            method: "PUT",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify(updatedExpenseDetails)
+        });
+
+        await showExpenseData();
+
+        emptyForm();
+
+        alert("Entery Updated !");
+
+        document.getElementById("expenseInputSubmit").style.display = "inline-block";
+        document.getElementById("expenseInputUpdate").style.display = "none";
+    }
+
+    catch (error) {
+        console.error("Could Not Update Data:", error);
+    }
+
+})
+
+
 function fillTable(input) {
 
     let rows = input.map((input, index) => ` 
@@ -119,4 +228,14 @@ function emptyForm() {
     document.getElementById("expenseAmount").value = "";
     document.getElementById("startDate").value = "";
     document.getElementById("endDate").value = "";
+    newID = null;
+}
+
+function pageChange() {
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
 }
