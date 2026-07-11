@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+</head>
+
+<body>
+
+    <h1>Expense Tracker</h1>
+
+    <div class="expense-form">
+
+        <div class="expense-heading">
+            <h2> + Add New Expense</h2>
+        </div>
+
+        <div class="expense-form-data">
+
+            <div class="expense-form-inputs">
+                <label for="expenseDate">Enter Date</label>
+                <input type="date" id="expenseDate">
+
+            </div>
+
+            <div class="expense-form-inputs">
+                <label for="expenseCategory">Enter Category</label>
+                <select id="expenseCategory">
+                    <option value="Food">Food</option>
+                    <option value="Travel">Travel</option>
+                    <option value="Shopping">Shopping</option>
+                    <option value="Bills">Bills</option>
+                    <option value="Rent">Rent</option>
+                    <option value="Others">Others</option>
+                </select>
+
+            </div>
+
+            <div class="expense-form-inputs">
+                <label for="expenseAmount">Enter Amount</label>
+                <input type="number" placeholder="Type Here" id="expenseAmount">
+            </div>
+
+            <button id="expenseInputSubmit">+ Add Expense</button>
+            <button id="expenseInputUpdate">Update</button>
+        </div>
+    </div>
+
+    <div class="expense-search">
+
+        <div class="expense-heading">
+            <h2>Search & Filter</h2>
+        </div>
+
+        <div class="expense-search-data">
+
+            <div class="expense-search-inputs">
+                <label for="startDate">Search By Range</label>
+                <div class="expense-search-inputs-two">
+                    <input type="date" id="startDate">
+                    <input type="date" id="endDate">
+                    <button id="searchByRangeSubmit">Search</button>
+                </div>
+            </div>
+            <div class="expense-search-inputs">
+                <label for="searchCategoty">Search By Category</label>
+                <div class="expense-search-inputs-two">
+                    <select id="searchCategoty">
+                        <option value="Food">Food</option>
+                        <option value="Travel">Travel</option>
+                        <option value="Shopping">Shopping</option>
+                        <option value="Bills">Bills</option>
+                        <option value="Rent">Rent</option>
+                        <option value="Others">Others</option>
+                    </select>
+                    <button id="searchCategotySubmit">Search</button>
+                    <button id="refresh">Refresh</button> <br> <br>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="total-expence">
+        <div class="total-expence-logo">
+            ₹
+        </div>
+        <div class="total-expence-data">
+            <p class="total-expence-text">Total Expense</p>
+            <p class="total-expence-amount" id="totalExpense"></p>
+        </div>
+    </div>
+
+    <main>
+
+        <table id="table">
+            <thead>
+                <tr>
+                    <th>Sr. No</th>
+                    <th>Date</th>
+                    <th>Category</th>
+                    <th>Amount</th>
+                    <th class="table-actions">Actions</th>
+                </tr>
+            </thead>
+            <tbody id="expenseData"></tbody>
+        </table>
+
+    </main>
+
+    <div class="pagination" id="pagination">
+        <button class="paginationButtons" id="previousPage">Prev</button>
+        <button class="paginationButtons" id="nextPage">Next</button>
+    </div>
+
+</body>
+
+</html>
