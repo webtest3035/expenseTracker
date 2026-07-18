@@ -9,6 +9,7 @@ const searchByRangeSubmit = document.getElementById("searchByRangeSubmit");
 const searchCategotySubmit = document.getElementById("searchCategotySubmit");
 const refresh = document.getElementById("refresh");
 const pagination = document.getElementById("pagination");
+const loading = document.getElementById("loading");
 
 let allExpense = 0;
 let currentPage = 1;
@@ -55,6 +56,8 @@ async function showExpenseData() {
         }
     }
 
+    showLoading();    
+
     try {
 
         const response = await fetch(url);
@@ -85,6 +88,9 @@ async function showExpenseData() {
 
     }
 
+    finally {
+        hideLoading();
+    }
 }
 
 expenseInputSubmit.addEventListener("click", async () => {
@@ -102,6 +108,8 @@ expenseInputSubmit.addEventListener("click", async () => {
         category,
         amount
     };
+
+    showLoading();
 
     try {
 
@@ -133,6 +141,10 @@ expenseInputSubmit.addEventListener("click", async () => {
     catch (error) {
         console.error("Could Not Add Data:", error);
     }
+
+    finally {
+        hideLoading();
+    }
 })
 
 table.addEventListener("click", (event) => {
@@ -154,6 +166,8 @@ async function deleteExpense(id) {
         return;
     }
 
+    showLoading();
+
     try {
         await fetch(`${expenseUrl}/${id}`, {
             method: "DELETE",
@@ -165,11 +179,17 @@ async function deleteExpense(id) {
     catch (error) {
         console.error("Could Not Delete Data:", error);
     }
+
+    finally {
+        hideLoading();
+    }
 }
 
 let newID = null;
 
 async function editExpense(id) {
+
+    showLoading();
 
     pageChange();
 
@@ -196,6 +216,10 @@ async function editExpense(id) {
         console.error("Could Not Edit Data:", error);
     }
 
+    finally {
+        hideLoading();
+    }
+
 }
 
 expenseInputUpdate.addEventListener("click", async () => {
@@ -213,6 +237,8 @@ expenseInputUpdate.addEventListener("click", async () => {
         category,
         amount
     };
+
+    showLoading();
 
     try {
         await fetch(`${expenseUrl}/${newID}`, {
@@ -238,6 +264,9 @@ expenseInputUpdate.addEventListener("click", async () => {
 
     catch (error) {
         console.error("Could Not Update Data:", error);
+    }
+    finally {
+        hideLoading();
     }
 
 })
@@ -282,7 +311,6 @@ searchCategotySubmit.addEventListener("click", () => {
 
     showExpenseData();
 })
-
 
 function fillTable(input) {
 
@@ -373,6 +401,7 @@ function next() {
         showExpenseData();
         createPagination();
         pageChange();
+        emptyForm();
     }
 }
 
@@ -383,6 +412,7 @@ function previous() {
         showExpenseData();
         createPagination();
         pageChange();
+        emptyForm();
     }
 }
 
@@ -420,6 +450,16 @@ refresh.addEventListener("click", () => {
 
     showExpenseData();
     emptyForm();
+    pageChange();
 
 })
 
+function showLoading() {
+    loading.style.display = "block";
+    table.style.display = "none"
+}
+
+function hideLoading() {
+    loading.style.display = "none";
+    table.style.display = "table"
+}
